@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Эффекты анимации фона значка FontAwesome с использованием CSS и Javascript | Анимированный фонt</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div class="box">
+        <div class="group"></div>
+    </div>
+    <script>
+        const group = document.querySelector('.group');
+        for(let i = 1; i < 20; i++){
+            const containerId = `iconContainer${i}`;
+            const container = document.createElement('div');
+            container.className = 'iconContainer';
+            container.id = containerId;
+            group.appendChild(container);
+            addImages(containerId); 
+        }
+
+        function addImages(containerId) { 
+            const iconContainer = document.getElementById(containerId);
+
+            const imageUrls = [
+                'snapedit_1741272893751.png',
+                'snapedit_1741272909192.png',
+                'snapedit_1741936685878 (1).png',
+                're-zero-emilia-white-dress-sticker.png',
+                'snapedit_1741272893751.png',
+                // Добавьте больше URL изображений по вашему выбору
+            ];
+
+            for (let i = 0; i < 50; i++) {
+                const img = document.createElement('img'); // Создаем элемент <img>
+                img.className = 'icon'; // Можно добавить класс для стилизации
+                img.src = randomImage(imageUrls); // Устанавливаем случайный URL изображения
+                img.alt = 'Icon Image'; // Устанавливаем альтернативный текст
+                iconContainer.appendChild(img);
+            }
+        }
+
+        function randomImage(values) {
+            const randomIndex = Math.floor(Math.random() * values.length);
+            return values[randomIndex];
+        }
+    </script>
+</body>
+</html>
+
